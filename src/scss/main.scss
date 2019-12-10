@@ -1,0 +1,52 @@
+@import '~reset.css';
+@import "settings/colors";
+@import "settings/fonts";
+
+html {
+    box-sizing: border-box;
+    font-family: $font-base;
+    background-color: $background;
+    color: $font-darker;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+.home {
+    margin: 0 auto;
+    width: 1024px;
+
+}
+
+.home_login {
+    margin-top: 10px;
+    display: flex;
+    justify-content: flex-end;
+    .login-btn {
+        background-color: $background;
+        border: none;
+        padding: 10px;
+        margin-left: 10px;
+        color: $font-lighter;
+    }
+
+    .login-btn:hover {
+        border: $border solid 1px;
+    }
+}
+.home_nav {
+    display: flex;
+    justify-content: flex-end;
+     ul {
+        display: flex;
+         li {
+             padding: 5px;
+         }
+         a {
+             padding: 5px 15px 5px 15px;
+         }
+         a:hover {
+             border: $font-darker solid 1px;
+         }
+    }
+}
