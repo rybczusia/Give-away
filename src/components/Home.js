@@ -1,4 +1,5 @@
 import React from 'react';
+
 // import Link from "react-router-dom/modules/Link";
 
 
@@ -15,7 +16,7 @@ function Home() {
 class HomeLogin extends React.Component {
     render() {
         return (
-            <div className='home_login'>
+            <div className='home-login'>
                 <button className='login-btn'>Zaloguj</button>
                 <button className='login-btn'>Załóż konto</button>
             </div>
@@ -27,12 +28,10 @@ class HomeLogin extends React.Component {
 class HomeHeader extends React.Component {
     render() {
         return (
-            <div className='home_wrapper'>
-                <div className='home_header'>
-                    <div className='header_img'>
-                        <img src="" alt=""/>
-                    </div>
-                    <nav className='home_nav'>
+
+                <div className='home-header'>
+
+                    <nav className='home-nav'>
                         <ul>
                             <li><a>Start</a></li>
                             <li><a>O co chodzi?</a></li>
@@ -41,17 +40,24 @@ class HomeHeader extends React.Component {
                             <li><a>Kontakt</a></li>
                         </ul>
                     </nav>
-                    <h1>
-                        <p>Zacznij pomagać! </p>
-                        <p>Oddaj niechciane rzeczy w zaufane ręce</p>
-                    </h1>
+                    <div className='home-wrapper'>
+                        <div className='header-img'>
+                            <img src={require("../assets/assets/Home-Hero-Image.jpg")} alt=""/>
+                        </div>
+                        <div className='headline-wrapper'>
+                            <h1>
+                                <p>Zacznij pomagać!</p>
+                                <p>Oddaj niechciane rzeczy w zaufane ręce</p>
+                                <img src={require('../assets/assets/Decoration.svg')} alt=''/>
+                            </h1>
 
-                    <div className='home_buttons'>
-                        <button className='home_btn'>Oddaj rzeczy</button>
-                        <button className='home_btn'>Zorganizuj zbiórkę</button>
+                            <div className='home-buttons'>
+                                <button className='home-btn'>Oddaj rzeczy</button>
+                                <button className='home-btn'>Zorganizuj zbiórkę</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
         )
     }
 
@@ -60,7 +66,7 @@ class HomeHeader extends React.Component {
 class HomeThreeColumns extends React.Component {
     render() {
         return (
-            <div className="home_colums">
+            <div className="home-colums">
 
             </div>
         )
