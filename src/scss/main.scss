@@ -122,3 +122,33 @@ button:hover {
         }
     }
 }
+
+.home-columns {
+    width: 100%;
+    background: $colums;
+    display: flex;
+    margin: 2vh 0;
+    text-align: center;
+    justify-content: space-around;
+    padding-bottom: 5vh;
+
+    .home-col-1, .home-col-2, .home-col-3 {
+        width: 20%;
+    }
+
+    .home-col-number {
+        font-size: 48px;
+        padding: 3vh 0;
+    }
+    .home-col-headline {
+        text-transform: uppercase;
+        padding-bottom: 2vh;
+
+    }
+    .home-col-content {
+        line-height: 1.5em;
+
+    }
+
+
+}
