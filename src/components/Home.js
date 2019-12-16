@@ -1,4 +1,5 @@
 import React from 'react';
+import headerlogo from '../assets/assets/Home-Hero-Image.jpg'
 
 // import Link from "react-router-dom/modules/Link";
 
@@ -26,9 +27,11 @@ class HomeLogin extends React.Component {
 
 
 class HomeHeader extends React.Component {
+    handleLogin() {
+        window.location = "/login"
+    }
     render() {
         return (
-
                 <div className='home-header'>
 
                     <nav className='home-nav'>
@@ -42,7 +45,6 @@ class HomeHeader extends React.Component {
                     </nav>
                     <div className='home-wrapper'>
                         <div className='header-img'>
-                            <img src={require("../assets/assets/Home-Hero-Image.jpg")} alt=""/>
                         </div>
                         <div className='headline-wrapper'>
                             <h1>
@@ -52,15 +54,14 @@ class HomeHeader extends React.Component {
                             </h1>
 
                             <div className='home-buttons'>
-                                <button className='home-btn'>Oddaj rzeczy</button>
-                                <button className='home-btn'>Zorganizuj zbiórkę</button>
+                                <button onClick={this.handleLogin} className='home-btn'>Oddaj rzeczy</button>
+                                <button onClick={this.handleLogin} className='home-btn'>Zorganizuj zbiórkę</button>
                             </div>
                         </div>
                     </div>
                 </div>
         )
     }
-
 }
 
 class HomeThreeColumns extends React.Component {

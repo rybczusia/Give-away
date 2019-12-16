@@ -2,12 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import Webfont from 'webfontloader'
+import WebFont from 'webfontloader';
 import './scss/main.scss'
 
-Webfont.load({
+WebFont.load({
     google: {
-        families: ['Open Sans: 300,400', 'Merriweather: 300, 400', 'sans-serif']
+        families: ['Open Sans:300,400', 'Merriweather:300,400', 'sans-serif']
     }
 });
 

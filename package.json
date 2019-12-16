@@ -12,7 +12,8 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.3.0",
     "react-scroll": "^1.7.14",
-    "reset.css": "^2.0.2"
+    "reset.css": "^2.0.2",
+    "webfontloader": "^1.6.28"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -34,5 +35,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "webfont": "^9.0.0"
   }
 }

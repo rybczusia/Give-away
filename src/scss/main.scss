@@ -2,20 +2,24 @@
 @import "settings/colors";
 @import "settings/fonts";
 
+
 html {
     box-sizing: border-box;
     font-family: $font-base;
-    background-color: $background;
+    background-color: #fff;
     color: $font-darker;
 }
 
 *, *:before, *:after {
     box-sizing: inherit;
 }
+button:hover {
+    cursor: pointer;
+}
 
 .home {
     margin: 0 auto;
-    width: 1024px;
+    width: 1700px;
 }
 
 .home-login {
@@ -37,6 +41,7 @@ html {
 }
 
 .home-nav {
+    margin-top: 2vh;
     display: flex;
     justify-content: flex-end;
 
@@ -63,60 +68,57 @@ html {
 
     .header-img {
         display: flex;
-        width: 30%;
-
-        img {
-            width: 100%;
-
-
-        }
-
+        width: 50%;
+        background-image: url(../assets/assets/Home-Hero-Image.jpg);
+        background-size: 150%;
+        background-repeat: no-repeat;
+        background-position:  right 30%;
     }
-
 
     .headline-wrapper {
         display: flex;
-        width: 70%;
+        width: 50%;
         flex-direction: column;
+
         h1 {
-            margin: 20vh 5vw 20vh 5vw;
+            margin: 20vh 5vw 10vh 5vw;
             font-size: 36px;
             text-align: center;
             letter-spacing: 2px;
             line-height: 40px;
+
             p {
                 display: flex;
                 flex-direction: row;
                 justify-content: center;
                 margin: 10px 2px 10px 2px;
             }
+
             img {
                 display: block;
                 width: 50%;
-                margin: 10vh auto 0 auto;
-
-
+                margin: 2vh auto 0 auto;
             }
         }
+
         .home-buttons {
             display: flex;
             justify-content: center;
             flex-direction: row;
-            margin-bottom: 10vh;
+            margin-bottom: 20vh;
+
             .home-btn {
                 font-size: 28px;
-                margin: 20px 20px;
+                margin: 0 20px;
                 padding: 30px 30px;
                 border: $font-lighter solid 1px;
                 text-transform: uppercase;
                 color: $font-lighter;
-
+                font-weight: lighter;
+                font-family: $font-base;
+                background: #fff;
 
             }
         }
-
-
     }
-
-
 }
