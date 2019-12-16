@@ -13,6 +13,7 @@ html {
 *, *:before, *:after {
     box-sizing: inherit;
 }
+
 button:hover {
     cursor: pointer;
 }
@@ -72,7 +73,7 @@ button:hover {
         background-image: url(../assets/assets/Home-Hero-Image.jpg);
         background-size: 150%;
         background-repeat: no-repeat;
-        background-position:  right 30%;
+        background-position: right 30%;
     }
 
     .headline-wrapper {
@@ -101,27 +102,30 @@ button:hover {
             }
         }
 
-        .home-buttons {
-            display: flex;
-            justify-content: center;
-            flex-direction: row;
-            margin-bottom: 20vh;
 
-            .home-btn {
-                font-size: 28px;
-                margin: 0 20px;
-                padding: 30px 30px;
-                border: $font-lighter solid 1px;
-                text-transform: uppercase;
-                color: $font-lighter;
-                font-weight: lighter;
-                font-family: $font-base;
-                background: #fff;
-
-            }
-        }
     }
 }
+
+.home-buttons {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    margin-bottom: 20vh;
+}
+
+.home-btn {
+    font-size: 28px;
+    margin: 0 20px;
+    padding: 30px 30px;
+    border: $font-lighter solid 1px;
+    text-transform: uppercase;
+    color: $font-lighter;
+    font-weight: lighter;
+    font-family: $font-base;
+    background: #fff;
+
+}
+
 
 .home-columns {
     width: 100%;
@@ -140,15 +144,63 @@ button:hover {
         font-size: 48px;
         padding: 3vh 0;
     }
+
     .home-col-headline {
         text-transform: uppercase;
         padding-bottom: 2vh;
-
     }
+
     .home-col-content {
         line-height: 1.5em;
 
     }
+}
+
+.home-steps {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 5vh 0;
+}
 
 
+.home-steps-headline {
+    font-size: 2em;
+
+    img {
+        display: block;
+        width: 70%;
+        margin: 2vh auto 0 auto;
+    }
+
+}
+
+.home-steps-container {
+    width: 100%;
+    margin: 5vh 0;
+    display: flex;
+    background: $background;
+    justify-content: space-around;
+    color: $font-lighter;
+    padding: 5vh 0;
+}
+.home-step {
+ display: flex;
+    flex-direction: column;
+}
+.step-icon {
+    justify-content: center;
+}
+.step-title {
+    text-align: center;
+    padding: 1vh 0;
+}
+.step-decoration-line {
+    display: block;
+    border-top: 2px solid $font-lighter;
+    width: 50%;
+    margin: 0 auto;
+}
+.step-content {
+    padding: 1vh 0;
 }

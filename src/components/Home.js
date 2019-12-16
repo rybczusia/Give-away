@@ -1,5 +1,5 @@
 import React from 'react';
-import headerlogo from '../assets/assets/Home-Hero-Image.jpg'
+// import { Link, animateScroll as scroll } from "react-scroll";
 
 // import Link from "react-router-dom/modules/Link";
 
@@ -10,6 +10,7 @@ function Home() {
             <HomeLogin/>
             <HomeHeader/>
             <HomeThreeColumns/>
+            <HomeSteps/>
         </div>
     );
 }
@@ -30,6 +31,9 @@ class HomeHeader extends React.Component {
     handleLogin() {
         window.location = "/login"
     }
+    // handleScroll = () => {
+    //   scrollTo(HomeSteps)
+    // };
 
     render() {
         return (
@@ -38,7 +42,7 @@ class HomeHeader extends React.Component {
                 <nav className='home-nav'>
                     <ul>
                         <li><a>Start</a></li>
-                        <li><a>O co chodzi?</a></li>
+                        <li><a onClick={this.handleScroll}>O co chodzi?</a></li>
                         <li><a>O nas</a></li>
                         <li><a>Fundacje i organizacje</a></li>
                         <li><a>Kontakt</a></li>
@@ -94,6 +98,57 @@ class HomeThreeColumns extends React.Component {
         )
     }
 
+}
+
+class HomeSteps extends React.Component {
+    handleLogin() {
+        window.location = "/login"
+    }
+    render() {
+        return (
+            <>
+                <div className='home-steps'>
+                    <div className='home-steps-headline'>
+                        <h2>Wystarczą 4 proste kroki</h2>
+                        <img className='step-icon' src={require('../assets/assets/Decoration.svg')} alt=''/>
+                    </div>
+                    <div className='home-steps-container'>
+                        <div className='home-step'>
+                            <img className='step-icon'  src={require('../assets/assets/Icon-1.svg')} alt=''/>
+                            <p className='step-title'>Wybierz rzeczy</p>
+                            <span className='step-decoration-line'></span>
+                            <p className='step-content'>Ubrania, zabawki, sprzęt i inne</p>
+
+                        </div>
+                        <div className='home-step'>
+                            <img className='step-icon'  src={require('../assets/assets/Icon-2.svg')} alt=''/>
+                            <p className='step-title'>Spakuj je</p>
+                            <span className='step-decoration-line'></span>
+                            <p className='step-content'>Skorzystaj z worków na śmieci</p>
+
+                        </div>
+                        <div className='home-step'>
+                            <img className='step-icon'  src={require('../assets/assets/Icon-3.svg')} alt=''/>
+                            <p className='step-title'>Zdecyduj komu chcesz pomóc</p>
+                            <span className='step-decoration-line'></span>
+                            <p className='step-content'>Wybierz zaufane miejsce</p>
+
+                        </div>
+                        <div className='home-step'>
+                            <img className='step-icon'  src={require('../assets/assets/Icon-4.svg')} alt=''/>
+                            <p className='step-title'>Zamów kuriera</p>
+                            <span className='step-decoration-line'></span>
+                            <p className='step-content'>kurier przyjedzie w dogodnym terminie</p>
+
+                        </div>
+                    </div>
+                    <button onClick={this.handleLogin} className='home-btn'>Oddaj rzeczy</button>
+
+                </div>
+            </>
+        )
+
+    }
 }
 
 export default Home;
