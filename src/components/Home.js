@@ -48,7 +48,9 @@ class HomeHeader extends React.Component {
                                 O co chodzi?
                             </Link>
                         </li>
-                        <li><a>O nas</a></li>
+                        <li><Link to='about' activeClass='active' spy={true} smooth={true} duration={500}>
+                            O nas
+                        </Link></li>
                         <li><a>Fundacje i organizacje</a></li>
                         <li><a>Kontakt</a></li>
                     </ul>
@@ -163,11 +165,19 @@ class HomeAbout extends React.Component {
             <>
                 <div className='home-about' name='about'>
                     <div className='home-about-content'>
-                        <h2 className='home-about-headine'>O nas</h2>
-                        <img className='step-icon' src={require('../assets/assets/Decoration.svg')} alt=''/>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                        <div className='home-about-wrapper'>
+                            <h2 className='home-about-headline'>O nas</h2>
+                            <img className='home-about-icon' src={require('../assets/assets/Decoration.svg')} alt=''/>
+                            <p className='home-about-text'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                                do
+                                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                        </div>
+
                     </div>
+                    <div className='home-about-img'>
+                        <img src={require('../assets/assets/People.jpg')} alt=''/>
+                    </div>
+
                 </div>
             </>
         );
