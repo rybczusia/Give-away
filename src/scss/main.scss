@@ -228,7 +228,6 @@ button:hover {
     width: 80%;
     justify-content: center;
     align-items: center;
-
     display: flex;
     flex-direction: column;
     background-image: url(../assets/assets/Signature.svg);
@@ -236,13 +235,14 @@ button:hover {
     background-position: right bottom;
     background-size: 20%;
 }
-.home-about-headline {
+
+.home-headline {
     text-align: center;
     font-size: 2em;
     padding-bottom: 5vh;
 }
 
-.home-about-icon {
+.home-icon {
     align-items: center;
     width: 40%;
     padding-bottom: 5vh;
@@ -254,12 +254,49 @@ button:hover {
     line-height: 2.2em;
     padding-bottom: 8vh;
 }
+
 .home-about-img {
     width: 50%;
     overflow: hidden;
+
     img {
         width: 120%;
     }
+}
+.home-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10vh 20vw;
+}
 
+.home-section-headline {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
 
+    .home-icon {
+        width: 40%;
+    }
+}
+
+.home-section-three {
+    display: flex;
+
+}
+
+.home-section-three-btn {
+    width: 50%;
+    margin: 2vh 2vw;
+    font-size: 18px;
+    background: #fff;
+    border: none;
+    color: $border;
+}
+
+.home-section-content {
+    text-align: center;
 }

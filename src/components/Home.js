@@ -12,6 +12,7 @@ class Home extends React.Component {
                 <HomeThreeColumns/>
                 <HomeSteps/>
                 <HomeAbout/>
+                <HomeFundation/>
             </div>
         );
     }
@@ -155,7 +156,6 @@ class HomeSteps extends React.Component {
                 </div>
             </>
         );
-
     }
 }
 
@@ -166,8 +166,8 @@ class HomeAbout extends React.Component {
                 <div className='home-about' name='about'>
                     <div className='home-about-content'>
                         <div className='home-about-wrapper'>
-                            <h2 className='home-about-headline'>O nas</h2>
-                            <img className='home-about-icon' src={require('../assets/assets/Decoration.svg')} alt=''/>
+                            <h2 className='home-headline'>O nas</h2>
+                            <img className='home-icon' src={require('../assets/assets/Decoration.svg')} alt=''/>
                             <p className='home-about-text'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                                 do
                                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
@@ -182,7 +182,27 @@ class HomeAbout extends React.Component {
             </>
         );
     }
+}
 
+class HomeFundation extends React.Component {
+    render() {
+        return (
+            <div className='home-section'>
+                <div className='home-section-headline'>
+                    <h2 className='home-headline'>Komu pomagamy?</h2>
+                    <img className='home-icon' src={require('../assets/assets/Decoration.svg')} alt=''/>
+                </div>
+                <div className='home-section-three'>
+                    <button className='home-section-three-btn'>Fundacjom</button>
+                    <button className='home-section-three-btn'>Organizacjom pozarządowym</button>
+                    <button className='home-section-three-btn'>Lokalnym zbiórkom</button>
+
+                </div>
+                <p className='home-section-content'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                    do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+            </div>
+        );
+    }
 }
 
 export default Home;
