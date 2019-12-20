@@ -12,7 +12,7 @@ class Home extends React.Component {
                 <HomeThreeColumns/>
                 <HomeSteps/>
                 <HomeAbout/>
-                <HomeFundation/>
+                <HomeSection/>
             </div>
         );
     }
@@ -184,25 +184,339 @@ class HomeAbout extends React.Component {
     }
 }
 
-class HomeFundation extends React.Component {
+class HomeSection extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            fundActive: true,
+            orgActive: false,
+            localActive: false
+        };
+    }
+
+    handleSectionClick = (e) => {
+        let newState = {...this.state};
+
+        if (e.currentTarget.innerText === 'Fundacjom') {
+            newState.fundActive = true;
+            newState.orgActive = false;
+            newState.localActive = false;
+        } else if (e.currentTarget.innerText === 'Organizacjom pozarządowym') {
+
+            newState.fundActive = false;
+            newState.orgActive = true;
+            newState.localActive = false;
+
+        } else {
+
+            newState.fundActive = false;
+            newState.orgActive = false;
+            newState.localActive = true;
+
+        }
+
+        this.setState(newState);
+    };
+
+
+    render() {
+        const {fundActive, orgActive, localActive} = this.state;
+        return (
+            <>
+                <div className='home-section'>
+                    <div className='home-section-headline'>
+                        <h2 className='home-headline'>Komu pomagamy?</h2>
+                        <img className='home-icon' src={require('../assets/assets/Decoration.svg')} alt=''/>
+                    </div>
+                    <div className='home-section-three'>
+                        <button onClick={this.handleSectionClick} className='home-section-three-btn btn-1'>Fundacjom
+                        </button>
+                        <button onClick={this.handleSectionClick} className='home-section-three-btn btn-2'>Organizacjom
+                            pozarządowym
+                        </button>
+                        <button onClick={this.handleSectionClick} className='home-section-three-btn btn-2'>Lokalnym
+                            zbiórkom
+                        </button>
+
+                    </div>
+                    <p className='home-section-content'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                        do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                </div>
+                {fundActive && <Fund/>}
+                {orgActive && <Organization/>}
+                {localActive && <Local/>}
+            </>
+
+        );
+    }
+}
+
+class Fund extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            currentPage: 1,
+            numbersPerPage: 3
+        };
+    }
+
+    handlePageClick = (e, i) => {
+this.state({
+    currentPage: i
+})
+    };
+
+    render() {
+        const {currentPage, numbersPerPage} = this.state;
+        const pageNumbers = [];
+        const data = [
+
+            {
+                'h2': 'Fundacja Dbam o zdrowie1',
+                'p': 'Cel i misja',
+                'h3': 'ubrania, jedzenie, sprzęt A'
+            },
+            {
+                'h2': 'Fundacja Dbam o zdrowie2',
+                'p': 'Cel i misja',
+                'h3': 'ubrania, jedzenie, sprzęt A'
+            },
+            {
+                'h2': 'Fundacja Dbam o zdrowie3',
+                'p': 'Cel i misja',
+                'h3': 'ubrania, jedzenie, sprzęt A'
+            },
+            {
+                'h2': 'Fundacja Dbam o zdrowie4',
+                'p': 'Cel i misja',
+                'h3': 'ubrania, jedzenie, sprzęt A'
+            },
+            {
+                'h2': 'Fundacja Dbam o zdrowie5',
+                'p': 'Cel i misja',
+                'h3': 'ubrania, jedzenie, sprzęt A'
+            },
+            {
+                'h2': 'Fundacja Dbam o zdrowie5',
+                'p': 'Cel i misja',
+                'h3': 'ubrania, jedzenie, sprzęt A'
+            }
+        ];
+
+
+        for (let i = 1; i <= Math.ceil(data.length / numbersPerPage); i++) {
+            const el = <li key={i} onClick={e => this.handlePageClick(e, i)}>
+                 {i}
+            </li>;
+            pageNumbers.push(el);
+        }
+
+
+        return (
+            <>
+                <div className='section-items'>
+                    {
+                        data.map((d) => <div className='section-item' key={d.h2}>
+                            <div className='section-item-left'>
+                                <h2>{d.h2}</h2>
+                                <p>{d.p}</p>
+                            </div>
+                            <div className='section-item-right'>
+                                <h3>{d.h3}</h3>
+                            </div>
+                        </div>)
+                    }
+                </div>
+                <section>
+                    <ul className='pageNumbers'>
+                        {pageNumbers}
+                    </ul>
+                </section>
+            </>
+        );
+    }
+}
+
+
+class Organization extends React.Component {
+
     render() {
         return (
-            <div className='home-section'>
-                <div className='home-section-headline'>
-                    <h2 className='home-headline'>Komu pomagamy?</h2>
-                    <img className='home-icon' src={require('../assets/assets/Decoration.svg')} alt=''/>
-                </div>
-                <div className='home-section-three'>
-                    <button className='home-section-three-btn'>Fundacjom</button>
-                    <button className='home-section-three-btn'>Organizacjom pozarządowym</button>
-                    <button className='home-section-three-btn'>Lokalnym zbiórkom</button>
+            <div className='section-items'>
+                <div className='section-item'>
+                    <div className='section-item-left'>
+                        <h2>Organizacja "Lroem ipsum1</h2>
+                        <p>Cel i misja</p>
+                    </div>
+                    <div className='section-item-right'>
 
+                        <h3>ubrania, jedzenie, sprzęt A</h3>
+                    </div>
                 </div>
-                <p className='home-section-content'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                <div className='section-item'>
+                    <div className='section-item-left'>
+                        <h2>Organizacja "Lroem ipsum2"</h2>
+                        <p>Cel i misja</p>
+                    </div>
+                    <div className='section-item-right'>
+
+                        <h3>ubrania, jedzenie, sprzęt A</h3>
+                    </div>
+                </div>
+                <div className='section-item'>
+                    <div className='section-item-left'>
+                        <h2>Organizacja "Lroem ipsum3"</h2>
+                        <p>Cel i misja</p>
+                    </div>
+                    <div className='section-item-right'>
+
+                        <h3>ubrania, jedzenie, sprzęt A</h3>
+                    </div>
+                </div>
+                <div className='section-item'>
+                    <div className='section-item-left'>
+                        <h2>Organizacja "Lroem ipsum4"</h2>
+                        <p>Cel i misja</p>
+                    </div>
+                    <div className='section-item-right'>
+
+                        <h3>ubrania, jedzenie, sprzęt A</h3>
+                    </div>
+                </div>
+                <div className='section-item'>
+                    <div className='section-item-left'>
+                        <h2>Organizacja "Lroem ipsum5"</h2>
+                        <p>Cel i misja</p>
+                    </div>
+                    <div className='section-item-right'>
+
+                        <h3>ubrania, jedzenie, sprzęt A</h3>
+                    </div>
+                </div>
+                <div className='section-item'>
+                    <div className='section-item-left'>
+                        <h2>Organizacja "Lroem ipsum6"</h2>
+                        <p>Cel i misja</p>
+                    </div>
+                    <div className='section-item-right'>
+
+                        <h3>ubrania, jedzenie, sprzęt A</h3>
+                    </div>
+                </div>
+                <div className='section-item'>
+                    <div className='section-item-left'>
+                        <h2>Organizacja "Lroem ipsum7"</h2>
+                        <p>Cel i misja</p>
+                    </div>
+                    <div className='section-item-right'>
+
+                        <h3>ubrania, jedzenie, sprzęt A</h3>
+                    </div>
+                </div>
+                <div className='section-item'>
+                    <div className='section-item-left'>
+                        <h2>Organizacja "Lroem ipsum7"</h2>
+                        <p>Cel i misja</p>
+                    </div>
+                    <div className='section-item-right'>
+
+                        <h3>ubrania, jedzenie, sprzęt A</h3>
+                    </div>
+                </div>
             </div>
         );
     }
 }
+
+class Local extends React.Component {
+
+    render() {
+        return (
+            <div className='section-items'>
+                <div className='section-item'>
+                    <div className='section-item-left'>
+                        <h2>"Lroem ipsum1</h2>
+                        <p>Cel i misja</p>
+                    </div>
+                    <div className='section-item-right'>
+
+                        <h3>ubrania, jedzenie, sprzęt A</h3>
+                    </div>
+                </div>
+                <div className='section-item'>
+                    <div className='section-item-left'>
+                        <h2>"Lroem ipsum2"</h2>
+                        <p>Cel i misja</p>
+                    </div>
+                    <div className='section-item-right'>
+
+                        <h3>ubrania, jedzenie, sprzęt A</h3>
+                    </div>
+                </div>
+                <div className='section-item'>
+                    <div className='section-item-left'>
+                        <h2>"Lroem ipsum3"</h2>
+                        <p>Cel i misja</p>
+                    </div>
+                    <div className='section-item-right'>
+
+                        <h3>ubrania, jedzenie, sprzęt A</h3>
+                    </div>
+                </div>
+                <div className='section-item'>
+                    <div className='section-item-left'>
+                        <h2>"Lroem ipsum4"</h2>
+                        <p>Cel i misja</p>
+                    </div>
+                    <div className='section-item-right'>
+
+                        <h3>ubrania, jedzenie, sprzęt A</h3>
+                    </div>
+                </div>
+                <div className='section-item'>
+                    <div className='section-item-left'>
+                        <h2>"Lroem ipsum5"</h2>
+                        <p>Cel i misja</p>
+                    </div>
+                    <div className='section-item-right'>
+
+                        <h3>ubrania, jedzenie, sprzęt A</h3>
+                    </div>
+                </div>
+                <div className='section-item'>
+                    <div className='section-item-left'>
+                        <h2>"Lroem ipsum6"</h2>
+                        <p>Cel i misja</p>
+                    </div>
+                    <div className='section-item-right'>
+
+                        <h3>ubrania, jedzenie, sprzęt A</h3>
+                    </div>
+                </div>
+                <div className='section-item'>
+                    <div className='section-item-left'>
+                        <h2>"Lroem ipsum7"</h2>
+                        <p>Cel i misja</p>
+                    </div>
+                    <div className='section-item-right'>
+
+                        <h3>ubrania, jedzenie, sprzęt A</h3>
+                    </div>
+                </div>
+                <div className='section-item'>
+                    <div className='section-item-left'>
+                        <h2>"Lroem ipsum7"</h2>
+                        <p>Cel i misja</p>
+                    </div>
+                    <div className='section-item-right'>
+
+                        <h3>ubrania, jedzenie, sprzęt A</h3>
+                    </div>
+                </div>
+            </div>
+        );
+    }
+}
+
 
 export default Home;
