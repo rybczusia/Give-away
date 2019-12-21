@@ -391,16 +391,17 @@ button:hover {
     }
 
     input {
-        margin-top: 2vh;
+        margin: 2vh 0;
         border: none;
         border-bottom: solid $border 1px;
         opacity: 0.7;
     }
     .home-footer-submit {
         border: $border solid 1px;
-        padding: 2vh;
+        padding: 1.3vh 1.8vw;
         background: #fff;
         cursor: pointer;
+
     }
 }
 

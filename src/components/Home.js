@@ -566,9 +566,21 @@ class HomeFooter extends React.Component {
         this.state = {
             name: '',
             mail: '',
-            text: ''
+            message: '',
+            accept: false,
+            errors: {
+                name: false,
+                email: false,
+                message: false,
+                accept: false
+            }
 
         };
+    }
+    messages = {
+        name_icorrect: 'Podane imię jest nieprawidłowe!',
+        mail_icorrect: 'Podany mail jest nieprawidłowy!',
+        message_icorrect: 'Wiadomość musi mieć minimm 120 znaków!',
     }
 
     handleSubmit = (e) => {
@@ -599,7 +611,7 @@ class HomeFooter extends React.Component {
                                 <div className='home-form-textarea'>
                                     <label>
                                         Wpisz wiadomość:
-                                        <textarea value={this.state.text}/>
+                                        <textarea value={this.state.message}/>
                                     </label>
                                 </div>
 
