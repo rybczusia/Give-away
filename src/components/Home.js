@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link, animateScroll as scroll} from 'react-scroll';
+import Form from './Form';
 
 
 class Home extends React.Component {
@@ -561,31 +562,7 @@ class Local extends React.Component {
 }
 
 class HomeFooter extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            name: '',
-            mail: '',
-            message: '',
-            accept: false,
-            errors: {
-                name: false,
-                email: false,
-                message: false,
-                accept: false
-            }
 
-        };
-    }
-    messages = {
-        name_icorrect: 'Podane imię jest nieprawidłowe!',
-        mail_icorrect: 'Podany mail jest nieprawidłowy!',
-        message_icorrect: 'Wiadomość musi mieć minimm 120 znaków!',
-    }
-
-    handleSubmit = (e) => {
-        e.preventDefault();
-    };
 
     render() {
         return (
@@ -597,27 +574,7 @@ class HomeFooter extends React.Component {
                         <div className='home-footer-content'>
                             <h2 className='home-headline'>Skontaktuj się z nami</h2>
                             <img className='home-icon' src={require('../assets/assets/Decoration.svg')} alt=''/>
-                            <form className='home-footer-form' onSubmit={this.handleSubmit}>
-                                <div className='home-form-line'>
-                                    <label>
-                                        Wpisz swoje imię:
-                                        <input type="text" value={this.state.name} onChange={this.handleChange}/>
-                                    </label>
-                                    <label>
-                                        Wpisz swój e-mail:
-                                        <input type="mail" value={this.state.mail} onChange={this.handleChange}/>
-                                    </label>
-                                </div>
-                                <div className='home-form-textarea'>
-                                    <label>
-                                        Wpisz wiadomość:
-                                        <textarea value={this.state.message}/>
-                                    </label>
-                                </div>
-
-                                <input className='home-footer-submit' type="submit" value="Wyślij"/>
-
-                            </form>
+                            <Form></Form>
 
                         </div>
 
