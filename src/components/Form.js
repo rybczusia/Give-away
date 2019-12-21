@@ -7,26 +7,25 @@ class Form extends React.Component {
         super(props);
         this.state = {
             name: '',
-            mail: '',
+            email: '',
             message: '',
-            accept: false,
             errors: {
                 name: false,
                 email: false,
                 message: false,
-                accept: false
             }
 
         };
     }
     messages = {
-        name_icorrect: 'Podane imię jest nieprawidłowe!',
-        mail_icorrect: 'Podany mail jest nieprawidłowy!',
-        message_icorrect: 'Wiadomość musi mieć minimm 120 znaków!',
+        name_incorrect: 'Podane imię jest nieprawidłowe!',
+        email_incorrect: 'Podany mail jest nieprawidłowy!',
+        message_incorrect: 'Wiadomość musi mieć minimm 120 znaków!',
     };
 handleChange = (e) => {
+    const value = e.currentTarget.value;
     const name = e.target.name;
-    const value = e.target.value;
+
     this.setState({
         [name]: value
     })
@@ -35,13 +34,50 @@ formValidation = () => {
     let name = false;
     let email = false;
     let message = false;
-    let accept = false;
-    let correct = false
-}
+    let correct = false;
+
+    if (this.state.name.length > 3 && this.state.name.indexOf('') === -1) {
+        name = true;
+    }
+    if (this.state.email.indexOf('@') !== -1) {
+        email = true;
+    }
+    if (this.state.message.length > 119 && this.state.name.indexOf('') === -1) {
+        message = true;
+    }
+    if (name && email && message) {
+        correct = true;
+    }
+    return ({
+        name,
+        email,
+        message,
+        correct
+    })
+};
 
     handleSubmit = (e) => {
         e.preventDefault();
-        const validation = this.formValidation
+        const validation = this.formValidation()
+        if (validation.correct) {
+            this.setState({
+                name: '',
+                email: '',
+                message: '',
+                errors: {
+                    name: false,
+                    email: false,
+                    message: false,
+                }
+            })
+        } else {
+            this.setState({
+                name: !validation.name,
+                email: !validation.mail,
+                message: !validation.message,
+            })
+
+        }
     };
 
 
@@ -54,16 +90,19 @@ formValidation = () => {
                 <label>
                     Wpisz swoje imię:
                     <input type="text" value={this.state.name} name='name'onChange={this.handleChange}/>
+                    {this.state.errors.name && <span>{this.messages.name_incorrect}</span>}
                 </label>
                 <label>
                     Wpisz swój e-mail:
-                    <input type="mail" value={this.state.mail} name='email' onChange={this.handleChange}/>
+                    <input type="mail" value={this.state.email} name='email' onChange={this.handleChange}/>
+                    {this.state.errors.email && <span>{this.messages.email_incorrect}</span>}
                 </label>
             </div>
             <div className='home-form-textarea'>
                 <label>
                     Wpisz wiadomość:
-                    <textarea value={this.state.message}/>
+                    <textarea value={this.state.message} name='message'/>
+                    {this.state.errors.message && <span>{this.messages.message_incorrect}</span>}
                 </label>
             </div>
 
