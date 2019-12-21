@@ -12,7 +12,8 @@ class Home extends React.Component {
                 <HomeThreeColumns/>
                 <HomeSteps/>
                 <HomeAbout/>
-                <HomeSection/>
+                <HomeHelping/>
+                <HomeFooter/>
             </div>
         );
     }
@@ -52,8 +53,11 @@ class HomeHeader extends React.Component {
                         <li><Link to='about' activeClass='active' spy={true} smooth={true} duration={500}>
                             O nas
                         </Link></li>
-                        <li><a>Fundacje i organizacje</a></li>
-                        <li><a>Kontakt</a></li>
+                        <li><Link to='helping' activeClass='active' spy={true} smooth={true} duration={500}>
+                            Fundacje i organizacje</Link>
+                        </li>
+                        <li><Link to='contact' activeClass='active' spy={true} smooth={true}
+                                  duration={500}>Kontakt</Link></li>
                     </ul>
                 </nav>
                 <div className='home-wrapper'>
@@ -81,21 +85,21 @@ class HomeThreeColumns extends React.Component {
     render() {
         return (
             <div className="home-columns">
-                <div className='home-col-1'>
+                <div className='home-column'>
                     <p className='home-col-number'>10</p>
                     <p className='home-col-headline'>oddanych worków</p>
                     <p className='home-col-content'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                         eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
 
                 </div>
-                <div className='home-col-2'>
+                <div className='home-column'>
                     <p className='home-col-number'>5</p>
                     <p className='home-col-headline'>wspartych organizacji</p>
                     <p className='home-col-content'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                         eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
 
                 </div>
-                <div className='home-col-3'>
+                <div className='home-column'>
                     <p className='home-col-number'>7</p>
                     <p className='home-col-headline'>zorganizowanych zbiórek</p>
                     <p className='home-col-content'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -184,11 +188,11 @@ class HomeAbout extends React.Component {
     }
 }
 
-class HomeSection extends React.Component {
+class HomeHelping extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            fundActive: true,
+            fundActive: false,
             orgActive: false,
             localActive: false
         };
@@ -223,23 +227,23 @@ class HomeSection extends React.Component {
         const {fundActive, orgActive, localActive} = this.state;
         return (
             <>
-                <div className='home-section'>
-                    <div className='home-section-headline'>
+                <div className='home-helping' name='helping'>
+                    <div className='home-helping-headline'>
                         <h2 className='home-headline'>Komu pomagamy?</h2>
                         <img className='home-icon' src={require('../assets/assets/Decoration.svg')} alt=''/>
                     </div>
-                    <div className='home-section-three'>
-                        <button onClick={this.handleSectionClick} className='home-section-three-btn btn-1'>Fundacjom
+                    <div className='home-helping-three'>
+                        <button onClick={this.handleSectionClick} className='home-helping-three-btn'>Fundacjom
                         </button>
-                        <button onClick={this.handleSectionClick} className='home-section-three-btn btn-2'>Organizacjom
+                        <button onClick={this.handleSectionClick} className='home-helping-three-btn'>Organizacjom
                             pozarządowym
                         </button>
-                        <button onClick={this.handleSectionClick} className='home-section-three-btn btn-2'>Lokalnym
+                        <button onClick={this.handleSectionClick} className='home-helping-three-btn'>Lokalnym
                             zbiórkom
                         </button>
 
                     </div>
-                    <p className='home-section-content'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                    <p className='home-helping-content'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                         do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
                 </div>
                 {fundActive && <Fund/>}
@@ -261,14 +265,16 @@ class Fund extends React.Component {
     }
 
     handlePageClick = (e, i) => {
-this.state({
-    currentPage: i
-})
+        this.setState({
+                currentPage: i
+            }
+        );
     };
 
     render() {
         const {currentPage, numbersPerPage} = this.state;
         const pageNumbers = [];
+
         const data = [
 
             {
@@ -297,7 +303,17 @@ this.state({
                 'h3': 'ubrania, jedzenie, sprzęt A'
             },
             {
-                'h2': 'Fundacja Dbam o zdrowie5',
+                'h2': 'Fundacja Dbam o zdrowie6',
+                'p': 'Cel i misja',
+                'h3': 'ubrania, jedzenie, sprzęt A'
+            },
+            {
+                'h2': 'Fundacja Dbam o zdrowie7',
+                'p': 'Cel i misja',
+                'h3': 'ubrania, jedzenie, sprzęt A'
+            },
+            {
+                'h2': 'Fundacja Dbam o zdrowie8',
                 'p': 'Cel i misja',
                 'h3': 'ubrania, jedzenie, sprzęt A'
             }
@@ -305,30 +321,33 @@ this.state({
 
 
         for (let i = 1; i <= Math.ceil(data.length / numbersPerPage); i++) {
-            const el = <li key={i} onClick={e => this.handlePageClick(e, i)}>
-                 {i}
+            const el = <li key={i} onClick={e => this.handlePageClick(e, i)}
+                           className={this.state.currentPage === i ? 'home-helping-active' : ''}>
+                {i}
             </li>;
             pageNumbers.push(el);
         }
+        const indexOfLast = currentPage * numbersPerPage;
+        const indexOfFirst = indexOfLast - numbersPerPage;
+        const currentElements = data.slice(indexOfFirst, indexOfLast);
+        const elements = currentElements.map((d, i) => <div className='home-helping-item' key={d.h2}>
+            <div className='home-helping-item-left'>
+                <h2>{d.h2}</h2>
+                <p>{d.p}</p>
+            </div>
+            <div className='home-helping-item-right'>
+                <h3>{d.h3}</h3>
+            </div>
+        </div>);
 
 
         return (
             <>
-                <div className='section-items'>
-                    {
-                        data.map((d) => <div className='section-item' key={d.h2}>
-                            <div className='section-item-left'>
-                                <h2>{d.h2}</h2>
-                                <p>{d.p}</p>
-                            </div>
-                            <div className='section-item-right'>
-                                <h3>{d.h3}</h3>
-                            </div>
-                        </div>)
-                    }
+                <div className='home-helping-items'>
+                    {elements}
                 </div>
                 <section>
-                    <ul className='pageNumbers'>
+                    <ul className='home-helping-page'>
                         {pageNumbers}
                     </ul>
                 </section>
@@ -339,185 +358,264 @@ this.state({
 
 
 class Organization extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            currentPage: 1,
+            numbersPerPage: 3
+        };
+    }
+
+    handlePageClick = (e, i) => {
+        this.setState({
+                currentPage: i
+            }
+        );
+    };
 
     render() {
-        return (
-            <div className='section-items'>
-                <div className='section-item'>
-                    <div className='section-item-left'>
-                        <h2>Organizacja "Lroem ipsum1</h2>
-                        <p>Cel i misja</p>
-                    </div>
-                    <div className='section-item-right'>
+        const {currentPage, numbersPerPage} = this.state;
+        const pageNumbers = [];
 
-                        <h3>ubrania, jedzenie, sprzęt A</h3>
-                    </div>
-                </div>
-                <div className='section-item'>
-                    <div className='section-item-left'>
-                        <h2>Organizacja "Lroem ipsum2"</h2>
-                        <p>Cel i misja</p>
-                    </div>
-                    <div className='section-item-right'>
+        const data = [
 
-                        <h3>ubrania, jedzenie, sprzęt A</h3>
-                    </div>
-                </div>
-                <div className='section-item'>
-                    <div className='section-item-left'>
-                        <h2>Organizacja "Lroem ipsum3"</h2>
-                        <p>Cel i misja</p>
-                    </div>
-                    <div className='section-item-right'>
+            {
+                'h2': 'Organizacja 1',
+                'p': 'Cel i misja',
+                'h3': 'lerm ipsum'
+            },
+            {
+                'h2': 'Organizacja 2',
+                'p': 'Cel i misja',
+                'h3': 'lerm ipsum'
+            },
+            {
+                'h2': 'Organizacja 3',
+                'p': 'Cel i misja',
+                'h3': 'lerm ipsum'
+            },
+            {
+                'h2': 'Organizacja 4',
+                'p': 'Cel i misja',
+                'h3': 'lerm ipsum'
+            },
+            {
+                'h2': 'Organizacja 5',
+                'p': 'Cel i misja',
+                'h3': 'lerm ipsum'
+            },
+            {
+                'h2': 'Organizacja 6',
+                'p': 'Cel i misja',
+                'h3': 'lerm ipsum'
+            },
+            {
+                'h2': 'Organizacja 7',
+                'p': 'Cel i misja',
+                'h3': 'lerm ipsum'
+            },
+            {
+                'h2': 'Organizacja 8',
+                'p': 'Cel i misja',
+                'h3': 'lerm ipsum'
+            }
+        ];
 
-                        <h3>ubrania, jedzenie, sprzęt A</h3>
-                    </div>
-                </div>
-                <div className='section-item'>
-                    <div className='section-item-left'>
-                        <h2>Organizacja "Lroem ipsum4"</h2>
-                        <p>Cel i misja</p>
-                    </div>
-                    <div className='section-item-right'>
 
-                        <h3>ubrania, jedzenie, sprzęt A</h3>
-                    </div>
-                </div>
-                <div className='section-item'>
-                    <div className='section-item-left'>
-                        <h2>Organizacja "Lroem ipsum5"</h2>
-                        <p>Cel i misja</p>
-                    </div>
-                    <div className='section-item-right'>
-
-                        <h3>ubrania, jedzenie, sprzęt A</h3>
-                    </div>
-                </div>
-                <div className='section-item'>
-                    <div className='section-item-left'>
-                        <h2>Organizacja "Lroem ipsum6"</h2>
-                        <p>Cel i misja</p>
-                    </div>
-                    <div className='section-item-right'>
-
-                        <h3>ubrania, jedzenie, sprzęt A</h3>
-                    </div>
-                </div>
-                <div className='section-item'>
-                    <div className='section-item-left'>
-                        <h2>Organizacja "Lroem ipsum7"</h2>
-                        <p>Cel i misja</p>
-                    </div>
-                    <div className='section-item-right'>
-
-                        <h3>ubrania, jedzenie, sprzęt A</h3>
-                    </div>
-                </div>
-                <div className='section-item'>
-                    <div className='section-item-left'>
-                        <h2>Organizacja "Lroem ipsum7"</h2>
-                        <p>Cel i misja</p>
-                    </div>
-                    <div className='section-item-right'>
-
-                        <h3>ubrania, jedzenie, sprzęt A</h3>
-                    </div>
-                </div>
+        for (let i = 1; i <= Math.ceil(data.length / numbersPerPage); i++) {
+            const el = <li key={i} onClick={e => this.handlePageClick(e, i)}
+                           className={this.state.currentPage === i ? 'home-helping-active' : ''}>
+                {i}
+            </li>;
+            pageNumbers.push(el);
+        }
+        const indexOfLast = currentPage * numbersPerPage;
+        const indexOfFirst = indexOfLast - numbersPerPage;
+        const currentElements = data.slice(indexOfFirst, indexOfLast);
+        const elements = currentElements.map((d, i) => <div className='home-helping-item' key={d.h2}>
+            <div className='home-helping-item-left'>
+                <h2>{d.h2}</h2>
+                <p>{d.p}</p>
             </div>
+            <div className='home-helping-item-right'>
+                <h3>{d.h3}</h3>
+            </div>
+        </div>);
+
+
+        return (
+            <>
+                <div className='home-helping-items'>
+                    {elements}
+                </div>
+                <section>
+                    <ul className='home-helping-page'>
+                        {pageNumbers}
+                    </ul>
+                </section>
+            </>
         );
     }
 }
 
 class Local extends React.Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            currentPage: 1,
+            numbersPerPage: 3
+        };
+    }
+
+    handlePageClick = (e, i) => {
+        this.setState({
+                currentPage: i
+            }
+        );
+    };
+
     render() {
-        return (
-            <div className='section-items'>
-                <div className='section-item'>
-                    <div className='section-item-left'>
-                        <h2>"Lroem ipsum1</h2>
-                        <p>Cel i misja</p>
-                    </div>
-                    <div className='section-item-right'>
+        const {currentPage, numbersPerPage} = this.state;
+        const pageNumbers = [];
 
-                        <h3>ubrania, jedzenie, sprzęt A</h3>
-                    </div>
-                </div>
-                <div className='section-item'>
-                    <div className='section-item-left'>
-                        <h2>"Lroem ipsum2"</h2>
-                        <p>Cel i misja</p>
-                    </div>
-                    <div className='section-item-right'>
+        const data = [
 
-                        <h3>ubrania, jedzenie, sprzęt A</h3>
-                    </div>
-                </div>
-                <div className='section-item'>
-                    <div className='section-item-left'>
-                        <h2>"Lroem ipsum3"</h2>
-                        <p>Cel i misja</p>
-                    </div>
-                    <div className='section-item-right'>
+            {
+                'h2': 'Organizacja lokalna 1',
+                'p': 'Cel i misja',
+                'h3': 'lerm ipsum'
+            },
+            {
+                'h2': 'Organizacja lokalna 2',
+                'p': 'Cel i misja',
+                'h3': 'lerm ipsum'
+            },
+            {
+                'h2': 'Organizacja lokalna 3',
+                'p': 'Cel i misja',
+                'h3': 'lerm ipsum'
+            },
+            {
+                'h2': 'Organizacja lokalna 4',
+                'p': 'Cel i misja',
+                'h3': 'lerm ipsum'
+            },
+            {
+                'h2': 'Organizacja lokalna 5',
+                'p': 'Cel i misja',
+                'h3': 'lerm ipsum'
+            },
+            {
+                'h2': 'Organizacja lokalna 6',
+                'p': 'Cel i misja',
+                'h3': 'lerm ipsum'
+            },
+            {
+                'h2': 'Organizacja lokalna 7',
+                'p': 'Cel i misja',
+                'h3': 'lerm ipsum'
+            },
+            {
+                'h2': 'Organizacja lokalna 8',
+                'p': 'Cel i misja',
+                'h3': 'lerm ipsum'
+            }
+        ];
 
-                        <h3>ubrania, jedzenie, sprzęt A</h3>
-                    </div>
-                </div>
-                <div className='section-item'>
-                    <div className='section-item-left'>
-                        <h2>"Lroem ipsum4"</h2>
-                        <p>Cel i misja</p>
-                    </div>
-                    <div className='section-item-right'>
 
-                        <h3>ubrania, jedzenie, sprzęt A</h3>
-                    </div>
-                </div>
-                <div className='section-item'>
-                    <div className='section-item-left'>
-                        <h2>"Lroem ipsum5"</h2>
-                        <p>Cel i misja</p>
-                    </div>
-                    <div className='section-item-right'>
-
-                        <h3>ubrania, jedzenie, sprzęt A</h3>
-                    </div>
-                </div>
-                <div className='section-item'>
-                    <div className='section-item-left'>
-                        <h2>"Lroem ipsum6"</h2>
-                        <p>Cel i misja</p>
-                    </div>
-                    <div className='section-item-right'>
-
-                        <h3>ubrania, jedzenie, sprzęt A</h3>
-                    </div>
-                </div>
-                <div className='section-item'>
-                    <div className='section-item-left'>
-                        <h2>"Lroem ipsum7"</h2>
-                        <p>Cel i misja</p>
-                    </div>
-                    <div className='section-item-right'>
-
-                        <h3>ubrania, jedzenie, sprzęt A</h3>
-                    </div>
-                </div>
-                <div className='section-item'>
-                    <div className='section-item-left'>
-                        <h2>"Lroem ipsum7"</h2>
-                        <p>Cel i misja</p>
-                    </div>
-                    <div className='section-item-right'>
-
-                        <h3>ubrania, jedzenie, sprzęt A</h3>
-                    </div>
-                </div>
+        for (let i = 1; i <= Math.ceil(data.length / numbersPerPage); i++) {
+            const el = <li key={i} onClick={e => this.handlePageClick(e, i)}
+                           className={this.state.currentPage === i ? 'home-helping-active' : ''}>
+                {i}
+            </li>;
+            pageNumbers.push(el);
+        }
+        const indexOfLast = currentPage * numbersPerPage;
+        const indexOfFirst = indexOfLast - numbersPerPage;
+        const currentElements = data.slice(indexOfFirst, indexOfLast);
+        const elements = currentElements.map((d, i) => <div className='home-helping-item' key={d.h2}>
+            <div className='home-helping-item-left'>
+                <h2>{d.h2}</h2>
+                <p>{d.p}</p>
             </div>
+            <div className='home-helping-item-right'>
+                <h3>{d.h3}</h3>
+            </div>
+        </div>);
+
+
+        return (
+            <>
+                <div className='home-helping-items'>
+                    {elements}
+                </div>
+                <section>
+                    <ul className='home-helping-page'>
+                        {pageNumbers}
+                    </ul>
+                </section>
+            </>
         );
     }
 }
 
+class HomeFooter extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            name: '',
+            mail: '',
+            text: ''
+
+        };
+    }
+
+    handleSubmit = (e) => {
+        e.preventDefault();
+    };
+
+    render() {
+        return (
+            <>
+                <div className='home-footer' name='contact'>
+                    <div className='home-footer-img'>
+                    </div>
+                    <div className='home-footer-wrapper'>
+                        <div className='home-footer-content'>
+                            <h2 className='home-headline'>Skontaktuj się z nami</h2>
+                            <img className='home-icon' src={require('../assets/assets/Decoration.svg')} alt=''/>
+                            <form className='home-footer-form' onSubmit={this.handleSubmit}>
+                                <div className='home-form-line'>
+                                    <label>
+                                        Wpisz swoje imię:
+                                        <input type="text" value={this.state.name} onChange={this.handleChange}/>
+                                    </label>
+                                    <label>
+                                        Wpisz swój e-mail:
+                                        <input type="mail" value={this.state.mail} onChange={this.handleChange}/>
+                                    </label>
+                                </div>
+                                <div className='home-form-textarea'>
+                                    <label>
+                                        Wpisz wiadomość:
+                                        <textarea value={this.state.text}/>
+                                    </label>
+                                </div>
+
+                                <input className='home-footer-submit' type="submit" value="Wyślij"/>
+
+                            </form>
+
+                        </div>
+
+                    </div>
+                </div>
+            </>
+        );
+    }
+
+}
 
 export default Home;
 

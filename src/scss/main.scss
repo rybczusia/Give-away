@@ -4,14 +4,13 @@
 
 
 html {
-    box-sizing: border-box;
     font-family: $font-base;
     background-color: #fff;
     color: $font-darker;
 }
 
 *, *:before, *:after {
-    box-sizing: inherit;
+    box-sizing: border-box;
 }
 
 button:hover {
@@ -20,7 +19,7 @@ button:hover {
 
 .home {
     margin: 0 auto;
-    width: 1700px;
+    max-width: 1700px;
 }
 
 .home-login {
@@ -59,6 +58,10 @@ button:hover {
 
         a:hover {
             border: $font-darker solid 1px;
+        }
+
+        li:hover {
+            cursor: pointer;
         }
     }
 }
@@ -102,7 +105,6 @@ button:hover {
             }
         }
 
-
     }
 }
 
@@ -114,7 +116,7 @@ button:hover {
 }
 
 .home-btn {
-    font-size: 28px;
+    font-size: 2em;
     margin: 0 20px;
     padding: 30px 30px;
     border: $font-lighter solid 1px;
@@ -123,7 +125,7 @@ button:hover {
     font-weight: lighter;
     font-family: $font-base;
     background: #fff;
-
+    display: flex;
 }
 
 
@@ -136,7 +138,7 @@ button:hover {
     justify-content: space-around;
     padding-bottom: 5vh;
 
-    .home-col-1, .home-col-2, .home-col-3 {
+    .home-column {
         width: 20%;
     }
 
@@ -152,7 +154,6 @@ button:hover {
 
     .home-col-content {
         line-height: 1.5em;
-
     }
 }
 
@@ -172,7 +173,6 @@ button:hover {
         width: 70%;
         margin: 2vh auto 0 auto;
     }
-
 }
 
 .home-steps-container {
@@ -263,7 +263,8 @@ button:hover {
         width: 120%;
     }
 }
-.home-section {
+
+.home-helping {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -271,7 +272,7 @@ button:hover {
     padding: 10vh 20vw;
 }
 
-.home-section-headline {
+.home-helping-headline {
     width: 100%;
     justify-content: center;
     align-items: center;
@@ -283,13 +284,13 @@ button:hover {
     }
 }
 
-.home-section-three {
+.home-helping-three {
     display: flex;
     padding-bottom: 5vh;
 
 }
 
-.home-section-three-btn {
+.home-helping-three-btn {
     width: 50%;
     margin: 2vh 2vw;
     font-size: 18px;
@@ -298,12 +299,16 @@ button:hover {
     color: $border;
 }
 
-.home-section-content {
+.home-helping-three-btn:hover {
+    border: solid 1px $border;
+}
+
+.home-helping-content {
     text-align: center;
     line-height: 2em;
 }
 
-.section-items {
+.home-helping-items {
     display: flex;
     width: 80%;
     flex-direction: column;
@@ -311,14 +316,14 @@ button:hover {
     margin: 5vh auto;
 }
 
-.section-item {
+.home-helping-item {
     display: flex;
     border-bottom: 1px solid $border;
     align-items: center;
     padding: 1.5vh 0;
 }
 
-.section-item-left {
+.home-helping-item-left {
     width: 70%;
 
     h2 {
@@ -329,13 +334,10 @@ button:hover {
     p {
         font-size: 0.7em;
         font-style: italic;
-
-
     }
-
-
 }
-.pageNumbers {
+
+.home-helping-page {
     color: $border;
     display: flex;
     justify-content: center;
@@ -344,7 +346,82 @@ button:hover {
 
     li {
         padding: 1vh 1vw;
-        border : solid 1px $border;
+        border: solid 1px $border;
         margin: 0 1vw;
+        cursor: pointer;
+    }
+}
+
+.home-helping-active {
+    border: solid 3px $border;
+}
+
+.home-footer {
+    height: 80vh;
+    margin: 5vh auto;
+
+    display: flex;
+}
+
+.home-footer-img {
+    height: 80vh;
+    width: 100%;
+    background-image: url(../assets/assets/Background-Contact-Form.jpg);
+    background-size: cover;
+    opacity: 0.2;
+
+}
+
+.home-footer-wrapper {
+    display: flex;
+    width: 60%;
+    align-items: center;
+    justify-content: flex-end;
+
+}
+
+.home-footer-content {
+    padding: 5vh 5vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    label {
+        padding-bottom: 2vh;
+    }
+
+    input {
+        margin-top: 2vh;
+        border: none;
+        border-bottom: solid $border 1px;
+        opacity: 0.7;
+    }
+    .home-footer-submit {
+        border: $border solid 1px;
+        padding: 2vh;
+        background: #fff;
+        cursor: pointer;
+    }
+}
+
+.home-form-line {
+    display: flex;
+    font-family: $font-at;
+    font-weight: 700;
+}
+
+.home-form-textarea {
+    label {
+        display: flex;
+        flex-direction: column;
+        font-family: $font-at;
+        font-weight: 700;
+    }
+    textarea {
+        opacity: 0.7;
+        border: none;
+        border-bottom: solid $border 1px;
+        padding: 3vh;
+
     }
 }
