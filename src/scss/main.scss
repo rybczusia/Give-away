@@ -417,10 +417,15 @@ button:hover {
         font-weight: 700;
     }
     textarea {
-        opacity: 0.7;
         border: none;
         border-bottom: solid $border 1px;
         padding: 3vh;
 
     }
+}
+.form-error {
+    margin-top: 1.2vh;
+    font-weight: 100;
+    color: red;
+    font-size: 0.8em;
 }
