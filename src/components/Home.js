@@ -5,7 +5,6 @@ import Form from './Form';
 
 class Home extends React.Component {
     render() {
-
         return (
             <div className="home">
                 <HomeLogin/>
@@ -18,27 +17,23 @@ class Home extends React.Component {
             </div>
         );
     }
-
 }
 
-
 class HomeLogin extends React.Component {
+    handleLogin() {
+        window.location = '/login';
+    }
     render() {
         return (
             <div className='home-login'>
-                <button className='login-btn'>Zaloguj</button>
+                <button className='login-btn' onClick={this.handleLogin}>Zaloguj</button>
                 <button className='login-btn'>Załóż konto</button>
             </div>
         );
     }
 }
 
-
 class HomeHeader extends React.Component {
-    handleLogin() {
-        window.location = '/login';
-    }
-
     render() {
         return (
             <div className='home-header'>

@@ -14,6 +14,7 @@ class Form extends React.Component {
             }
         };
     }
+
     messages = {
         name_incorrect: 'Podane imię jest nieprawidłowe!',
         email_incorrect: 'Podany mail jest nieprawidłowy!',
@@ -27,6 +28,7 @@ class Form extends React.Component {
             [name]: value
         });
     };
+
     formValidation() {
         let name = false;
         let email = false;
@@ -39,7 +41,7 @@ class Form extends React.Component {
         if (this.state.email.indexOf('@') !== -1) {
             email = true;
         }
-        if (this.state.message.length > 5) {
+        if (this.state.message.length > 120) {
             message = true;
         }
         if (name && email && message) {
@@ -48,7 +50,6 @@ class Form extends React.Component {
         console.log('valid' + name);
         console.log('valid' + email);
         console.log('valid' + message);
-
         console.log('valid' + correct);
         return ({
             name,
@@ -57,10 +58,35 @@ class Form extends React.Component {
             correct
         });
     };
+
     handleSubmit = (e) => {
         e.preventDefault();
         const validation = this.formValidation();
         if (validation.correct) {
+            fetch('https://fer-api.coderslab.pl/v1/portfolio/contact', {
+                method: 'POST',
+                body: JSON.stringify({
+                    name: this.state.name,
+                    email: this.state.email,
+                    message: this.state.message
+                }),
+                headers: {
+                        'Content-Type': 'application/json'
+                    }
+            })
+                .then((resp) => resp.json())
+                .then((resp => {
+                    console.log(resp);
+                    if (resp.status === 'success') {
+                        return (alert('Formularz został wysłany'))
+                    }
+                }))
+                .catch(error => {
+                    if (error.status) {
+                        return (alert('Błąd w wysyłaniu formularza'))
+                    }
+                });
+
             this.setState({
                 name: '',
                 email: '',
@@ -71,6 +97,7 @@ class Form extends React.Component {
                     message: false
                 }
             });
+
         } else {
             this.setState({
                 errors: {
@@ -81,6 +108,7 @@ class Form extends React.Component {
             });
         }
     };
+
     render() {
 
         return (
