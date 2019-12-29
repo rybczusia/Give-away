@@ -8,6 +8,7 @@ class Home extends React.Component {
         return (
             <div className="home">
                 <HomeLogin/>
+                <HomeNavigation/>
                 <HomeHeader/>
                 <HomeThreeColumns/>
                 <HomeSteps/>
@@ -32,30 +33,38 @@ class HomeLogin extends React.Component {
         );
     }
 }
+class HomeNavigation extends React.Component {
+    render() {
+        return (
+            <nav className='home-nav'>
+                <ul>
+                    <li><a>Start</a></li>
+                    <li>
+                        <Link to='steps' activeClass='active' spy={true} smooth={true} duration={500}>
+                            O co chodzi?
+                        </Link>
+                    </li>
+                    <li><Link to='about' activeClass='active' spy={true} smooth={true} duration={500}>
+                        O nas
+                    </Link></li>
+                    <li><Link to='helping' activeClass='active' spy={true} smooth={true} duration={500}>
+                        Fundacje i organizacje</Link>
+                    </li>
+                    <li><Link to='contact' activeClass='active' spy={true} smooth={true}
+                              duration={500}>Kontakt</Link></li>
+                </ul>
+            </nav>
+        )
+    }
+
+}
 
 class HomeHeader extends React.Component {
     render() {
         return (
             <div className='home-header'>
 
-                <nav className='home-nav'>
-                    <ul>
-                        <li><a>Start</a></li>
-                        <li>
-                            <Link to='steps' activeClass='active' spy={true} smooth={true} duration={500}>
-                                O co chodzi?
-                            </Link>
-                        </li>
-                        <li><Link to='about' activeClass='active' spy={true} smooth={true} duration={500}>
-                            O nas
-                        </Link></li>
-                        <li><Link to='helping' activeClass='active' spy={true} smooth={true} duration={500}>
-                            Fundacje i organizacje</Link>
-                        </li>
-                        <li><Link to='contact' activeClass='active' spy={true} smooth={true}
-                                  duration={500}>Kontakt</Link></li>
-                    </ul>
-                </nav>
+
                 <div className='home-wrapper'>
                     <div className='header-img'>
                     </div>
@@ -582,4 +591,6 @@ class HomeFooter extends React.Component {
 }
 
 export default Home;
+export {HomeNavigation}
+export {HomeLogin}
 

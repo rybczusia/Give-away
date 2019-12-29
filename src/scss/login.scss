@@ -1,0 +1,22 @@
+@mixin header {
+    margin-top: 10vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    h2 {
+        text-align: center;
+        font-size: 2em;
+        padding-bottom: 1.2vh;
+    }
+
+    img {
+        width: 30%;
+        padding-bottom: 5vh;
+
+    }
+}
+
+.login {
+    @include header
+}
