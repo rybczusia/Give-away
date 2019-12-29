@@ -3,7 +3,6 @@
 @import "settings/fonts";
 @import "login";
 
-
 html {
     font-family: $font-base;
     background-color: #fff;
@@ -24,7 +23,7 @@ button:hover {
 }
 
 .home-login {
-    margin-top: 10px;
+    margin: 2vh 5vh 0 5vh;
     display: flex;
     justify-content: flex-end;
 
@@ -42,7 +41,7 @@ button:hover {
 }
 
 .home-nav {
-    margin-top: 2vh;
+    margin: 2vh 5vh 0 5vh;
     display: flex;
     justify-content: flex-end;
 
@@ -51,10 +50,11 @@ button:hover {
 
         li {
             padding: 5px;
+            padding-right: 0;
         }
 
         a {
-            padding: 5px 15px 5px 15px;
+            padding: 5px 15px 0 15px;
         }
 
         a:hover {
@@ -105,28 +105,17 @@ button:hover {
                 margin: 2vh auto 0 auto;
             }
         }
-
     }
 }
 
+
 .home-buttons {
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    margin-bottom: 20vh;
+    @include buttons;
 }
 
+
 .home-btn {
-    font-size: 2em;
-    margin: 0 20px;
-    padding: 30px 30px;
-    border: $font-lighter solid 1px;
-    text-transform: uppercase;
-    color: $font-lighter;
-    font-weight: lighter;
-    font-family: $font-base;
-    background: #fff;
-    display: flex;
+ @include button;
 }
 
 
