@@ -10,13 +10,16 @@ class Login extends React.Component{
         this.state = {
             email: '',
             pass: '',
-            message: '',
             errors: {
                 email: false,
                 message: false
             }
         }
     }
+    messages = {
+        pass_incorrect: 'Podane hasło jest nieprawidłowe!',
+        email_incorrect: 'Podany mail jest nieprawidłowy!',
+    };
     render() {
         return (
             <>
@@ -35,7 +38,7 @@ class Login extends React.Component{
                     <label>
                         Hasło:
                         <input type="mail" value={this.state.email} name='pass' onChange={this.handleChange}/>
-                        {this.state.errors.email && <span className='form-error'>{this.messages.email_incorrect}</span>}
+                        {this.state.errors.email && <span className='form-error'>{this.messages.pass_incorrect}</span>}
                     </label>
                 </div>
             </>
