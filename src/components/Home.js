@@ -24,11 +24,14 @@ class HomeLogin extends React.Component {
     handleLogin() {
         window.location = '/login';
     }
+    handleRegister() {
+        window.location = '/rejestracja'
+    }
     render() {
         return (
             <div className='home-login'>
                 <button className='login-btn' onClick={this.handleLogin}>Zaloguj</button>
-                <button className='login-btn'>Załóż konto</button>
+                <button className='login-btn' onClick={this.handleRegister}>Załóż konto</button>
             </div>
         );
     }

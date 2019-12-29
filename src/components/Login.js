@@ -11,7 +11,7 @@ class Login extends React.Component {
             pass: '',
             errors: {
                 email: false,
-                message: false
+                pass: false
             }
         };
     }
@@ -92,7 +92,7 @@ class Login extends React.Component {
             this.setState({
                 errors: {
                     email: !validation.email,
-                    pass: !validation.message
+                    pass: !validation.pass
                 }
             });
         }
