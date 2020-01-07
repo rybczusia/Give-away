@@ -30,8 +30,8 @@ class HomeLogin extends React.Component {
     render() {
         return (
             <div className='home-login'>
-                <button className='login-btn' onClick={this.handleLogin}>Zaloguj</button>
-                <button className='login-btn' onClick={this.handleRegister}>Załóż konto</button>
+                <button className='home-login-btn' onClick={this.handleLogin}>Zaloguj</button>
+                <button className='home-login-btn' onClick={this.handleRegister}>Załóż konto</button>
             </div>
         );
     }
@@ -59,25 +59,21 @@ class HomeNavigation extends React.Component {
             </nav>
         )
     }
-
 }
 
 class HomeHeader extends React.Component {
     render() {
         return (
             <div className='home-header'>
-
-
                 <div className='home-wrapper'>
-                    <div className='header-img'>
+                    <div className='home-header-img'>
                     </div>
-                    <div className='headline-wrapper'>
+                    <div className='home-headline'>
                         <h1>
                             <p>Zacznij pomagać!</p>
                             <p>Oddaj niechciane rzeczy w zaufane ręce</p>
                             <img src={require('../assets/assets/Decoration.svg')} alt=''/>
                         </h1>
-
                         <div className='home-buttons'>
                             <button onClick={this.handleLogin} className='home-btn'>Oddaj rzeczy</button>
                             <button onClick={this.handleLogin} className='home-btn'>Zorganizuj zbiórkę</button>
@@ -130,8 +126,8 @@ class HomeSteps extends React.Component {
             <>
                 <div className='home-steps' name='steps'>
                     <div className='home-steps-headline'>
-                        <h2>Wystarczą 4 proste kroki</h2>
-                        <img className='step-icon' src={require('../assets/assets/Decoration.svg')} alt=''/>
+                        <h2 className='home-headline'>Wystarczą 4 proste kroki</h2>
+                        <img className='home-icon' src={require('../assets/assets/Decoration.svg')} alt=''/>
                     </div>
                     <div className='home-steps-container'>
                         <div className='home-step'>
@@ -163,7 +159,10 @@ class HomeSteps extends React.Component {
 
                         </div>
                     </div>
-                    <button onClick={this.handleLogin} className='home-btn'>Oddaj rzeczy</button>
+                    <div className='home-steps-buttons'>
+                        <button onClick={this.handleLogin} className='home-steps-btn'>Oddaj rzeczy</button>
+                    </div>
+
 
                 </div>
             </>

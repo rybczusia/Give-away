@@ -1,4 +1,7 @@
 @import "login";
+@import "settings/colors";
+@import "settings/fonts";
+@import '~reset.css';
 
 .register {
     @include header;

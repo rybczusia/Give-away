@@ -3,6 +3,7 @@
 @import "settings/fonts";
 @import "login";
 @import "register";
+@import "logout";
 
 html {
     font-family: $font-base;
@@ -28,7 +29,7 @@ button:hover {
     display: flex;
     justify-content: flex-end;
 
-    .login-btn {
+    .home-login-btn {
         background-color: $background;
         border: none;
         padding: 10px;
@@ -36,7 +37,7 @@ button:hover {
         color: $font-lighter;
     }
 
-    .login-btn:hover {
+    .home-login-btn:hover {
         border: $border solid 1px;
     }
 }
@@ -71,54 +72,37 @@ button:hover {
 .home-wrapper {
     display: flex;
     width: 100%;
-
-    .header-img {
-        display: flex;
-        width: 50%;
-        background-image: url(../assets/assets/Home-Hero-Image.jpg);
-        background-size: 150%;
-        background-repeat: no-repeat;
-        background-position: right 30%;
-    }
-
-    .headline-wrapper {
-        display: flex;
-        width: 50%;
-        flex-direction: column;
-
-        h1 {
-            margin: 20vh 5vw 10vh 5vw;
-            font-size: 36px;
-            text-align: center;
-            letter-spacing: 2px;
-            line-height: 40px;
-
-            p {
-                display: flex;
-                flex-direction: row;
-                justify-content: center;
-                margin: 10px 2px 10px 2px;
-            }
-
-            img {
-                display: block;
-                width: 50%;
-                margin: 2vh auto 0 auto;
-            }
-        }
-    }
 }
 
+.home-header-img {
+    display: flex;
+    width: 50%;
+    background-image: url(../assets/assets/Home-Hero-Image.jpg);
+    background-size: 150%;
+    background-repeat: no-repeat;
+    background-position: right 30%;
+}
+
+.home-headline {
+    @include header;
+
+    p {
+        padding: 1.2vh;
+    }
+}
 
 .home-buttons {
     @include buttons;
-}
+    width: 50%;
 
+}
 
 .home-btn {
- @include button;
-}
+    @include button;
+    margin: 0 5% 5% 0;
+    font-size: 0.8em;
 
+}
 
 .home-columns {
     width: 100%;
@@ -157,13 +141,7 @@ button:hover {
 
 
 .home-steps-headline {
-    font-size: 2em;
-
-    img {
-        display: block;
-        width: 70%;
-        margin: 2vh auto 0 auto;
-    }
+   @include header;
 }
 
 .home-steps-container {
@@ -199,6 +177,12 @@ button:hover {
 
 .step-content {
     padding: 1vh 0;
+}
+.home-steps-buttons {
+    @include buttons;
+}
+.home-steps-button {
+    @include button;
 }
 
 .home-about {
@@ -372,9 +356,7 @@ button:hover {
 
 .home-footer-content {
 
-    @include form
-
-    .home-footer-submit {
+    @include form.home-footer-submit {
         border: $border solid 1px;
         padding: 1.3vh 1.8vw;
         background: #fff;
@@ -396,6 +378,7 @@ button:hover {
         font-family: $font-at;
         font-weight: 700;
     }
+
     textarea {
         border: none;
         border-bottom: solid $border 1px;
