@@ -84,24 +84,25 @@ button:hover {
 }
 
 .home-headline {
-    @include header;
-
+   @include header;
     p {
-        padding: 1.2vh;
+        line-height: 2em;
+        font-size: 2rem;
+    }
+    .home-headline-img {
+        width: 15vw;
     }
 }
 
 .home-buttons {
     @include buttons;
-    width: 50%;
-
+    width: 20vw;
 }
 
 .home-btn {
     @include button;
     margin: 0 5% 5% 0;
     font-size: 0.8em;
-
 }
 
 .home-columns {
@@ -159,29 +160,29 @@ button:hover {
     flex-direction: column;
 }
 
-.step-icon {
+.home-step-icon {
     justify-content: center;
 }
 
-.step-title {
+.home-step-title {
     text-align: center;
     padding: 1vh 0;
 }
 
-.step-decoration-line {
+.home-step-decoration {
     display: block;
     border-top: 2px solid $font-lighter;
     width: 50%;
     margin: 0 auto;
 }
 
-.step-content {
+.home-step-content {
     padding: 1vh 0;
 }
 .home-steps-buttons {
     @include buttons;
 }
-.home-steps-button {
+.home-steps-btn {
     @include button;
 }
 

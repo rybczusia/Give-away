@@ -10,14 +10,13 @@
 }
 @mixin button {
     font-size: 1.5em;
-    padding: 0.8vh 0.8vw;
+    padding: 1.2vh 1.4vw;
     border: $font-lighter solid 1px;
     text-transform: uppercase;
     color: $font-lighter;
     font-weight: lighter;
     font-family: $font-base;
     background: #fff;
-    display: flex;
     cursor: pointer;
 }
 @mixin form {
@@ -44,12 +43,11 @@
     align-items: center;
     h2 {
         text-align: center;
-        font-size: 2em;
-        padding-bottom: 1.2vh;
+        font-size: 1.8rem;
     }
     img {
-        width: 30%;
-        padding-bottom: 5vh;
+        width: 30vw;
+        padding: 2.5vh 0 10vh 0;
     }
 }
 .login {

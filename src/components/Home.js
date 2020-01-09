@@ -69,10 +69,10 @@ class HomeHeader extends React.Component {
                     <div className='home-header-img'>
                     </div>
                     <div className='home-headline'>
-                        <h1>
+                        <h1 className='home-headline-h1'>
                             <p>Zacznij pomagać!</p>
                             <p>Oddaj niechciane rzeczy w zaufane ręce</p>
-                            <img src={require('../assets/assets/Decoration.svg')} alt=''/>
+                            <img className='home-headline-img' src={require('../assets/assets/Decoration.svg')} alt=''/>
                         </h1>
                         <div className='home-buttons'>
                             <button onClick={this.handleLogin} className='home-btn'>Oddaj rzeczy</button>
@@ -94,14 +94,12 @@ class HomeThreeColumns extends React.Component {
                     <p className='home-col-headline'>oddanych worków</p>
                     <p className='home-col-content'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                         eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
-
                 </div>
                 <div className='home-column'>
                     <p className='home-col-number'>5</p>
                     <p className='home-col-headline'>wspartych organizacji</p>
                     <p className='home-col-content'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                         eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
-
                 </div>
                 <div className='home-column'>
                     <p className='home-col-number'>7</p>
@@ -113,7 +111,6 @@ class HomeThreeColumns extends React.Component {
             </div>
         );
     }
-
 }
 
 class HomeSteps extends React.Component {
@@ -126,36 +123,36 @@ class HomeSteps extends React.Component {
             <>
                 <div className='home-steps' name='steps'>
                     <div className='home-steps-headline'>
-                        <h2 className='home-headline'>Wystarczą 4 proste kroki</h2>
-                        <img className='home-icon' src={require('../assets/assets/Decoration.svg')} alt=''/>
+                        <h2>Wystarczą 4 proste kroki</h2>
+                        <img src={require('../assets/assets/Decoration.svg')} alt=''/>
                     </div>
                     <div className='home-steps-container'>
                         <div className='home-step'>
-                            <img className='step-icon' src={require('../assets/assets/Icon-1.svg')} alt=''/>
-                            <p className='step-title'>Wybierz rzeczy</p>
-                            <span className='step-decoration-line'></span>
-                            <p className='step-content'>Ubrania, zabawki, sprzęt i inne</p>
+                            <img className='home-step-icon' src={require('../assets/assets/Icon-1.svg')} alt=''/>
+                            <p className='home-step-title'>Wybierz rzeczy</p>
+                            <span className='home-step-decoration'></span>
+                            <p className='home-step-content'>Ubrania, zabawki, sprzęt i inne</p>
 
                         </div>
                         <div className='home-step'>
-                            <img className='step-icon' src={require('../assets/assets/Icon-2.svg')} alt=''/>
-                            <p className='step-title'>Spakuj je</p>
-                            <span className='step-decoration-line'></span>
-                            <p className='step-content'>Skorzystaj z worków na śmieci</p>
+                            <img className='home-step-icon' src={require('../assets/assets/Icon-2.svg')} alt=''/>
+                            <p className='home-step-title'>Spakuj je</p>
+                            <span className='home-step-decoration'></span>
+                            <p className='home-step-content'>Skorzystaj z worków na śmieci</p>
 
                         </div>
                         <div className='home-step'>
-                            <img className='step-icon' src={require('../assets/assets/Icon-3.svg')} alt=''/>
-                            <p className='step-title'>Zdecyduj komu chcesz pomóc</p>
-                            <span className='step-decoration-line'></span>
-                            <p className='step-content'>Wybierz zaufane miejsce</p>
+                            <img className='home-step-icon' src={require('../assets/assets/Icon-3.svg')} alt=''/>
+                            <p className='home-step-title'>Zdecyduj komu chcesz pomóc</p>
+                            <span className='home-step-decoration'></span>
+                            <p className='home-step-content'>Wybierz zaufane miejsce</p>
 
                         </div>
                         <div className='home-step'>
-                            <img className='step-icon' src={require('../assets/assets/Icon-4.svg')} alt=''/>
-                            <p className='step-title'>Zamów kuriera</p>
-                            <span className='step-decoration-line'></span>
-                            <p className='step-content'>kurier przyjedzie w dogodnym terminie</p>
+                            <img className='home-step-icon' src={require('../assets/assets/Icon-4.svg')} alt=''/>
+                            <p className='home-step-title'>Zamów kuriera</p>
+                            <span className='home-step-decoration'></span>
+                            <p className='home-step-content'>kurier przyjedzie w dogodnym terminie</p>
 
                         </div>
                     </div>
@@ -177,8 +174,8 @@ class HomeAbout extends React.Component {
                 <div className='home-about' name='about'>
                     <div className='home-about-content'>
                         <div className='home-about-wrapper'>
-                            <h2 className='home-headline'>O nas</h2>
-                            <img className='home-icon' src={require('../assets/assets/Decoration.svg')} alt=''/>
+                            <h2>O nas</h2>
+                            <img src={require('../assets/assets/Decoration.svg')} alt=''/>
                             <p className='home-about-text'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                                 do
                                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
@@ -236,8 +233,8 @@ class HomeHelping extends React.Component {
             <>
                 <div className='home-helping' name='helping'>
                     <div className='home-helping-headline'>
-                        <h2 className='home-headline'>Komu pomagamy?</h2>
-                        <img className='home-icon' src={require('../assets/assets/Decoration.svg')} alt=''/>
+                        <h2>Komu pomagamy?</h2>
+                        <img src={require('../assets/assets/Decoration.svg')} alt=''/>
                     </div>
                     <div className='home-helping-three'>
                         <button onClick={this.handleSectionClick} className='home-helping-three-btn'>Fundacjom
@@ -281,7 +278,6 @@ class Fund extends React.Component {
     render() {
         const {currentPage, numbersPerPage} = this.state;
         const pageNumbers = [];
-
         const data = [
 
             {
@@ -326,7 +322,6 @@ class Fund extends React.Component {
             }
         ];
 
-
         for (let i = 1; i <= Math.ceil(data.length / numbersPerPage); i++) {
             const el = <li key={i} onClick={e => this.handlePageClick(e, i)}
                            className={this.state.currentPage === i ? 'home-helping-active' : ''}>
@@ -346,8 +341,6 @@ class Fund extends React.Component {
                 <h3>{d.h3}</h3>
             </div>
         </div>);
-
-
         return (
             <>
                 <div className='home-helping-items'>
@@ -362,7 +355,6 @@ class Fund extends React.Component {
         );
     }
 }
-
 
 class Organization extends React.Component {
     constructor(props) {
@@ -427,8 +419,6 @@ class Organization extends React.Component {
                 'h3': 'lerm ipsum'
             }
         ];
-
-
         for (let i = 1; i <= Math.ceil(data.length / numbersPerPage); i++) {
             const el = <li key={i} onClick={e => this.handlePageClick(e, i)}
                            className={this.state.currentPage === i ? 'home-helping-active' : ''}>
@@ -448,8 +438,6 @@ class Organization extends React.Component {
                 <h3>{d.h3}</h3>
             </div>
         </div>);
-
-
         return (
             <>
                 <div className='home-helping-items'>
@@ -466,7 +454,6 @@ class Organization extends React.Component {
 }
 
 class Local extends React.Component {
-
     constructor(props) {
         super(props);
         this.state = {
@@ -487,7 +474,6 @@ class Local extends React.Component {
         const pageNumbers = [];
 
         const data = [
-
             {
                 'h2': 'Organizacja lokalna 1',
                 'p': 'Cel i misja',
@@ -568,8 +554,6 @@ class Local extends React.Component {
 }
 
 class HomeFooter extends React.Component {
-
-
     render() {
         return (
             <>
@@ -578,8 +562,8 @@ class HomeFooter extends React.Component {
                     </div>
                     <div className='home-footer-wrapper'>
                         <div className='home-footer-content'>
-                            <h2 className='home-headline'>Skontaktuj się z nami</h2>
-                            <img className='home-icon' src={require('../assets/assets/Decoration.svg')} alt=''/>
+                            <h2>Skontaktuj się z nami</h2>
+                            <img src={require('../assets/assets/Decoration.svg')} alt=''/>
                             <Form></Form>
 
                         </div>
