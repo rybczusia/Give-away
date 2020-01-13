@@ -254,7 +254,6 @@ class HomeHelping extends React.Component {
                 {orgActive && <Organization/>}
                 {localActive && <Local/>}
             </>
-
         );
     }
 }

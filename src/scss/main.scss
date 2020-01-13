@@ -4,6 +4,7 @@
 @import "login";
 @import "register";
 @import "logout";
+@import 'mixins';
 
 html {
     font-family: $font-base;
@@ -201,10 +202,8 @@ button:hover {
 }
 
 .home-about-wrapper {
+    @include header;
     width: 80%;
-    justify-content: center;
-    align-items: center;
-    display: flex;
     flex-direction: column;
     background-image: url(../assets/assets/Signature.svg);
     background-repeat: no-repeat;
@@ -249,21 +248,13 @@ button:hover {
 }
 
 .home-helping-headline {
+    @include header;
     width: 100%;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-
-    .home-icon {
-        width: 40%;
-    }
 }
 
 .home-helping-three {
     display: flex;
     padding-bottom: 5vh;
-
 }
 
 .home-helping-three-btn {
@@ -335,7 +326,6 @@ button:hover {
 .home-footer {
     height: 80vh;
     margin: 5vh auto;
-
     display: flex;
 }
 
@@ -356,7 +346,7 @@ button:hover {
 }
 
 .home-footer-content {
-
+    @include header;
     @include form.home-footer-submit {
         border: $border solid 1px;
         padding: 1.3vh 1.8vw;
